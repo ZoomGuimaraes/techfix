@@ -132,7 +132,7 @@ git clone git@github.com:ZoomGuimaraes/techfix.git
 ```
 
 ```bash
-cd nome-do-projeto
+cd techfix
 ```
 
 ---
@@ -164,7 +164,7 @@ php artisan key:generate
 ```
 
 ---
-
+<!-- 
 ### 4 - Configurar banco de dados
 
 Configure no arquivo `.env`:
@@ -173,9 +173,9 @@ DB_DATABASE=nome_do_banco
 DB_USERNAME=usuario
 DB_PASSWORD=senha
 
----
+--- -->
 
-### 5 - Rodar migrations e seeders
+### 4 - Rodar migrations e seeders
 
 O primeiro usuário do sistema é criado automaticamente através de **Seeder**.
 
@@ -192,7 +192,7 @@ Isso irá:
 
 ---
 
-### 6 - Instalar o Filament
+### 5 - Instalar o Filament
 
 ```bash
 php artisan filament:install
@@ -200,7 +200,7 @@ php artisan filament:install
 
 ---
 
-### 7 - Rodar o servidor
+### 6 - Rodar o servidor
 
 ```bash
 php artisan serve
