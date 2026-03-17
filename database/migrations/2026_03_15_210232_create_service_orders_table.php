@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('service_orders', function (Blueprint $table) {
             $table->id();
             $table->string('number')->unique(); // Ex: OS-2026-0001
-            $table->foreignId('client_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('person_id')->constrained()->cascadeOnDelete();
             $table->foreignId('equipment_id')->constrained()->cascadeOnDelete();
             $table->foreignId('technician_id')->nullable()->constrained('users')->nullOnDelete();
             $table->text('problem_reported');
