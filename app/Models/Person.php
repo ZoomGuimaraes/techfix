@@ -8,6 +8,16 @@ class Person extends Model
 {
     protected $guarded = ['id'];
 
+    public function legalPerson()
+    {
+        return $this->hasOne(LegalPerson::class);
+    }
+
+    public function naturalPerson()
+    {
+        return $this->hasOne(NaturalPerson::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -21,6 +31,11 @@ class Person extends Model
     public function equipment()
     {
         return $this->hasMany(Equipment::class);
+    }
+
+    public function personType()
+    {
+        return $this->hasOne(PersonType::class);
     }
 
 }

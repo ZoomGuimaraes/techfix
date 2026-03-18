@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class LegalPerson extends Model
 {
-    //
+    protected $guarded = ['id'];
+
+    public function person()
+    {
+        return $this->belongsTo(Person::class);
+    }
 }

@@ -11,12 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('service_order_services', function (Blueprint $table) {
+        Schema::create('part_service_order', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_order_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('service_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('service_order_id')
+                ->constrained()
+                ->cascadeOnDelete();
 
-            $table->integer('quantity')->default(1);
+            $table->foreignId('part_id')
+                ->constrained()
+                ->cascadeOnDelete();
+
+            $table->integer('quantity');
+
             $table->integer('price');
             $table->timestamps();
         });
@@ -27,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('service_order_services');
+        Schema::dropIfExists('part_service_order');
     }
 };

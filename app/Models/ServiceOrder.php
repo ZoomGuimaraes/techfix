@@ -6,5 +6,34 @@ use Illuminate\Database\Eloquent\Model;
 
 class ServiceOrder extends Model
 {
-    //
+    protected $guarded = ['id'];
+
+    public function person()
+    {
+        return $this->belongsTo(Person::class);
+    }
+
+    public function equipment()
+    {
+        return $this->belongsTo(Equipment::class);
+    }
+
+    public function personType()
+    {
+        return $this->belongsTo(PersonType::class);
+    }
+
+    public function services()
+    {
+        return $this->belongsToMany(Service::class)
+                    ->withPivot('quantity', 'price')
+                    ->withTimestamps();
+    }
+
+    public function parts()
+    {
+        return $this->belongsToMany(Part::class)
+                    ->withPivot('quantity', 'price')
+                    ->withTimestamps();
+    }
 }
