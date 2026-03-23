@@ -23,11 +23,9 @@ class ServiceOrder extends Model
         return $this->belongsTo(PersonType::class);
     }
 
-    public function services()
+    public function servicesOrderServices()
     {
-        return $this->belongsToMany(Service::class)
-                    ->withPivot('quantity', 'price')
-                    ->withTimestamps();
+        return $this->hasMany(ServiceOrderService::class);
     }
 
     public function parts()
