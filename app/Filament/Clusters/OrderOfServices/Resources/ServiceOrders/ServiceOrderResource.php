@@ -46,6 +46,7 @@ class ServiceOrderResource extends Resource
     {
         return [
             RelationManagers\ServicesOrderServicesRelationManager::class,
+            RelationManagers\PartsOrderPartsRelationManager::class,
         ];
     }
 

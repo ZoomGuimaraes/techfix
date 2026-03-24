@@ -8,11 +8,10 @@ class Service extends Model
 {
     protected $guarded = ['id'];
 
-    public function serviceOrders()
+    public function serviceOrderServices()
     {
-        return $this->belongsToMany(ServiceOrder::class)
-                    ->withPivot('quantity', 'price')
-                    ->withTimestamps();
+        return $this->hasMany(ServiceOrderService::class);
     }
+
 
 }

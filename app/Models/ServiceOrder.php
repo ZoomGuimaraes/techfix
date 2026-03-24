@@ -28,10 +28,8 @@ class ServiceOrder extends Model
         return $this->hasMany(ServiceOrderService::class);
     }
 
-    public function parts()
+    public function partsOrderParts()
     {
-        return $this->belongsToMany(Part::class)
-                    ->withPivot('quantity', 'price')
-                    ->withTimestamps();
+        return $this->hasMany(PartServiceOrder::class);
     }
 }

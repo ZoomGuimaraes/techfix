@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ServiceOrderService extends Model
+class PartServiceOrder extends Model
 {
     protected $guarded = ['id'];
 
@@ -13,14 +13,8 @@ class ServiceOrderService extends Model
         return $this->belongsTo(ServiceOrder::class);
     }
 
-    public function service()
-    {
-        return $this->belongsTo(Service::class);
-    }
-
     public function part()
     {
         return $this->belongsTo(Part::class);
     }
-    
 }
