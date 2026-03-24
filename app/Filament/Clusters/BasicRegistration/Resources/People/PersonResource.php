@@ -27,6 +27,9 @@ class PersonResource extends Resource
     
     protected static string | \UnitEnum | null $navigationGroup = 'Pessoa';
 
+    protected static ?string $modelLabel = 'Pessoa';
+
+    protected static ?string $pluralModelLabel = 'Pessoas';
 
     protected static ?string $recordTitleAttribute = 'name';
 

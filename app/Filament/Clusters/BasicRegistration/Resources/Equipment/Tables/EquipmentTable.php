@@ -3,6 +3,7 @@
 namespace App\Filament\Clusters\BasicRegistration\Resources\Equipment\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
@@ -16,23 +17,36 @@ class EquipmentTable
         return $table
             ->columns([
                 TextColumn::make('id')
-                    ->searchable(),
-                TextColumn::make('person_id')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('person.name')
+                    ->label('Proprietário')
+                    ->searchable()
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('type')
-                    ->searchable(),
+                    ->label('Tipo')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('brand')
-                    ->searchable(),
+                    ->label('Marca')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('model')
-                    ->searchable(),
+                    ->label('Modelo')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('serial_number')
-                    ->searchable(),
+                    ->label('Número de Série')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('created_at')
+                    ->label('Criado em')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
+                    ->label('Atualizado em')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -41,8 +55,12 @@ class EquipmentTable
                 //
             ])
             ->recordActions([
-                ViewAction::make(),
-                EditAction::make(),
+                ViewAction::make()
+                    ->label(''),
+                EditAction::make()
+                    ->label(''),
+                DeleteAction::make()
+                    ->label(''),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

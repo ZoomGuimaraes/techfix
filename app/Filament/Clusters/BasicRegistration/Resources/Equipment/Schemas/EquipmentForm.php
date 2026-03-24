@@ -14,16 +14,21 @@ class EquipmentForm
         return $schema
             ->components([
                 Select::make('person_id')
-                    ->label('Cliente')
+                    ->label('Proprietário')
                     ->relationship('person', 'name')
                     ->searchable()
                     ->required(),
                 TextInput::make('type')
+                    ->label('Tipo')
                     ->required(),
-                TextInput::make('brand'),
-                TextInput::make('model'),
-                TextInput::make('serial_number'),
+                TextInput::make('brand')
+                    ->label('Marca'),
+                TextInput::make('model')
+                    ->label('Modelo'),
+                TextInput::make('serial_number')
+                    ->label('Número de Série'),
                 Textarea::make('notes')
+                    ->label('Observações')
                     ->columnSpanFull(),
             ]);
     }

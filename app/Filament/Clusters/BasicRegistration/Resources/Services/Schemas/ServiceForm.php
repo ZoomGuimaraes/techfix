@@ -13,10 +13,13 @@ class ServiceForm
         return $schema
             ->components([
                 TextInput::make('name')
+                    ->label('Nome')
                     ->required(),
                 Textarea::make('description')
+                    ->label('Descrição')
                     ->columnSpanFull(),
                 TextInput::make('price')
+                    ->label('Preço')
                     ->required()
                     ->numeric()
                     ->prefix('$'),

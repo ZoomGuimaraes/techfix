@@ -27,7 +27,13 @@ class EquipmentResource extends Resource
 
     protected static string | \UnitEnum | null $navigationGroup = 'Pessoa';
 
-    protected static ?string $recordTitleAttribute = 'name';
+    protected static ?string $recordTitleAttribute = 'type';
+
+    protected static ?string $modelLabel = 'Equipamento';
+
+    protected static ?string $pluralModelLabel = 'Equipamentos';
+
+    
 
     public static function form(Schema $schema): Schema
     {

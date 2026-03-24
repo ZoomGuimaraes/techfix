@@ -29,6 +29,10 @@ class PartResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    protected static ?string $modelLabel = 'Peça';
+
+    protected static ?string $pluralModelLabel = 'Peças';
+
     public static function form(Schema $schema): Schema
     {
         return PartForm::configure($schema);

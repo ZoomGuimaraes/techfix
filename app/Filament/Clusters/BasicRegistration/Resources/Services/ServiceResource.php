@@ -29,6 +29,10 @@ class ServiceResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    protected static ?string $modelLabel = 'Serviço';
+
+    protected static ?string $pluralModelLabel = 'Serviços';
+
     public static function form(Schema $schema): Schema
     {
         return ServiceForm::configure($schema);

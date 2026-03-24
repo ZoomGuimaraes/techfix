@@ -25,7 +25,11 @@ class ServiceOrderResource extends Resource
 
     protected static ?string $cluster = OrderOfServicesCluster::class;
 
-    protected static ?string $recordTitleAttribute = 'name';
+    protected static ?string $recordTitleAttribute = 'number';
+
+    protected static ?string $modelLabel = 'Ordem de Serviço';
+
+    // protected static ?string $pluralModelLabel = 'Ordens de Serviços';
 
     public static function form(Schema $schema): Schema
     {
