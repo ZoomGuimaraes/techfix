@@ -2,6 +2,7 @@
 
 namespace App\Filament\Clusters\OrderOfServices\Resources\ServiceOrders\Schemas;
 
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
@@ -15,14 +16,16 @@ class ServiceOrderForm
                 TextInput::make('number')
                     ->label('Número da OS')
                     ->required(),
-                TextInput::make('person.name')
+                Select::make('person_id')
                     ->label('Proprietário')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('equipment.type')
+                    ->relationship('person', 'name')
+                    ->searchable()
+                    ->required(),
+                Select::make('equipment_id')
                     ->label('Equipamento')
-                    ->required()
-                    ->numeric(),
+                    ->relationship('equipment', 'type')
+                    ->searchable()
+                    ->required(),
                 TextInput::make('person_type_id')
                     ->label('Técnico')
                     ->numeric(),
